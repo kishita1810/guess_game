@@ -23,15 +23,19 @@ if mode == 1:
     print("You have chosen the word guessing game.")
     print("I'm thinking of a word with 4 letters. Guess it!")
     while not answer_guessed:  
-        guess_word = str(input("Enter your guess. It should be a 4 letter word: "))
-        print(f"You have guessed {guess_word.upper()}.")
+        guess_word = str(input("Enter your guess. It should be a 4 letter word: ")).upper()
+        print(f"You have guessed {guess_word}.")
         guess_count += 1
-        if guess_word.upper() == answer.upper():
+        correct_word_position = 0
+        if guess_word == answer:
             answer_guessed = True
         else:
             for i in range(len(guess_word)):
-                correct_word_position = 0
-                if guess_word.upper()[i] in answer[i]:
+                
+                print(i)
+                print(guess_word[i])
+                print(answer[i])
+                if guess_word[i] == answer[i]:
                     correct_word_position += 1
             
             print(f"{correct_word_position} letter(s) are in the correct position.")
