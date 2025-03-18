@@ -7,8 +7,19 @@ it should return x in correct position. Where x is the number of correct positio
 5. It should keep the count of attempts.
 6. When the correct word or number is guessed, it should return you guessed correctly in x attempts.'''
 
-word_answer = "FREE"
-number_answer = "8889"
+import random
+import nltk
+from nltk.corpus import words
+
+# Download word list (only needed once)
+nltk.download("words")
+
+def generate_random_valid_word():
+    word_list = [word.upper() for word in words.words() if len(word) == 4]  # Get only 4-letter words
+    return random.choice(word_list)
+
+def generate_random_number():
+    return str(random.randint(1000, 9999))  # Ensures a 4-digit number
 
 def greeting():
     print("Hello, welcome to the guessing game!")
@@ -22,20 +33,20 @@ def guess_game(mode):
     answer_guessed = False
     guess_count = 0 
     if mode == 1:
-        answer = word_answer
-        type = "word"
-        xyz = "letters word"
-        correct_position_message = "letter(s)"
+        answer = generate_random_valid_word()
+        type_class = "word"
+        category = "letters word"
+        kind = "letter(s)"
     if mode == 2:
-        answer = number_answer
-        type = "code"
-        xyz = "digits number"
-        correct_position_message = "digit(s)"
+        answer = generate_random_number
+        type_class = "code"
+        category = "digits number"
+        kind = "digit(s)"
 
-    print(f"You have chosen the {type} guessing game. \nI'm thinking of a 4 {xyz}. Guess it!")   
+    print(f"You have chosen the {type_class} guessing game. \nI'm thinking of a 4 {category}. Guess it!")   
 
     while not answer_guessed:  
-        guess = str(input("Enter your guess. It should be a 4 digit number: ")).upper()
+        guess = str(input("Enter your guess. It should be a 4 {category}: ")).upper()
         print(f"You have guessed {guess}.")
         guess_count += 1
         correct_word_position = 0
@@ -46,12 +57,13 @@ def guess_game(mode):
                 if guess[i] == answer[i]:
                     correct_word_position += 1
                 
-            print(f"{correct_word_position} {correct_position_message} are in the correct position.")
-    print(f"Congratulations! You guessed the {type} correctly in {guess_count} attempts.")
+            print(f"{correct_word_position} {kind} are in the correct position.")
+    print(f"Congratulations! You guessed the {type_class} correctly in {guess_count} attempts.")
+   
+def main():
+    greeting()
+    mode = mode_choice()
+    guess_game(mode)
 
-    
-
-    
-greeting()
-mode = mode_choice()
-guess_game(mode)
+if __name__ == "__main__":
+    main()
