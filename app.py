@@ -10,38 +10,48 @@ it should return x in correct position. Where x is the number of correct positio
 word_answer = "FREE"
 number_answer = "8889"
 
-print("Hello, welcome to the guessing game!")
-print("There are two modes available: 1. Word guessing game and 2. Code guessing game.")
+def greeting():
+    print("Hello, welcome to the guessing game!")
+    print("There are two modes available: 1. Word guessing game and 2. Code guessing game.")
 
-mode = int(input(("Please choose the mode you wish to play: 1 - Word guessing game, 2 - Code guessing game: ")))
+def mode_choice():
+     mode = int(input(("Please choose the mode you wish to play: 1 - Word guessing game, 2 - Code guessing game: ")))
+     return mode
 
-answer_guessed = False
-guess_count = 0
+def guess_game(mode):
+    answer_guessed = False
+    guess_count = 0 
+    if mode == 1:
+        answer = word_answer
+        type = "word"
+        xyz = "letters word"
+        correct_position_message = "letter(s)"
+    if mode == 2:
+        answer = number_answer
+        type = "code"
+        xyz = "digits number"
+        correct_position_message = "digit(s)"
 
-if mode == 1:
-    answer = word_answer
-    print("You have chosen the word guessing game.")
-    print("I'm thinking of a word with 4 letters. Guess it!")
+    print(f"You have chosen the {type} guessing game. \nI'm thinking of a 4 {xyz}. Guess it!")   
+
     while not answer_guessed:  
-        guess_word = str(input("Enter your guess. It should be a 4 letter word: ")).upper()
-        print(f"You have guessed {guess_word}.")
+        guess = str(input("Enter your guess. It should be a 4 digit number: ")).upper()
+        print(f"You have guessed {guess}.")
         guess_count += 1
         correct_word_position = 0
-        if guess_word == answer:
+        if guess == answer:
             answer_guessed = True
         else:
-            for i in range(len(guess_word)):
-                
-                print(i)
-                print(guess_word[i])
-                print(answer[i])
-                if guess_word[i] == answer[i]:
+            for i in range(len(guess)):
+                if guess[i] == answer[i]:
                     correct_word_position += 1
-            
-            print(f"{correct_word_position} letter(s) are in the correct position.")
-
-    print(f"Congratulations! You guessed the word correctly in {guess_count} attempts.")
-
-    
+                
+            print(f"{correct_word_position} {correct_position_message} are in the correct position.")
+    print(f"Congratulations! You guessed the {type} correctly in {guess_count} attempts.")
 
     
+
+    
+greeting()
+mode = mode_choice()
+guess_game(mode)
