@@ -1,12 +1,3 @@
-'''In this code, I want to create a 4 letter word guessing game or 4 digit code guessing game.
-1. For this, I will need the answer stored as number or string. 
-2. Second, I will need the input from the user.
-3. Then I have to compare the guess made by user with the answer. 
-4. If there is word or number in the correct position as the answer,
-it should return x in correct position. Where x is the number of correct positions.
-5. It should keep the count of attempts.
-6. When the correct word or number is guessed, it should return you guessed correctly in x attempts.'''
-
 import random
 import nltk
 from nltk.corpus import words
