@@ -53,7 +53,7 @@ def mode_select(mode: int):
 @app.post("/guess")
 def guess(request: GuessRequest):
     """Process the user's guess and return the number of correct positions."""
-    guess = request.guess
+    guess = request.guess.upper()
 
     if not current_game["answer"]:
         raise HTTPException(status_code=404, detail="Game not started! Please select a mode first.")
