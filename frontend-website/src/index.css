@@ -1,0 +1,136 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 25% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 230 25% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 230 25% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 270 70% 65%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 230 25% 15%;
+    --muted-foreground: 210 40% 60%;
+
+    --accent: 160 100% 45%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 230 25% 15%;
+    --input: 230 25% 15%;
+    --ring: 210 100% 50%;
+
+    --radius: 0.75rem;
+    --glow-color: rgba(14, 165, 233, 0.7);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-primary/20 selection:text-foreground;
+  }
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
+    background-image: radial-gradient(circle at 25% 10%, rgba(14, 165, 233, 0.05) 0%, transparent 20%), 
+                      radial-gradient(circle at 80% 80%, rgba(155, 135, 245, 0.05) 0%, transparent 20%);
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--glow-color);
+  }
+  .text-glow-sm {
+    text-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color);
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+  }
+  .glass {
+    @apply backdrop-blur-lg bg-white/5 shadow-glass border border-white/10;
+  }
+  .neon-border {
+    @apply relative;
+  }
+  .neon-border::before {
+    content: "";
+    @apply absolute inset-0 rounded-lg p-[1px] bg-gradient-to-r from-primary via-secondary to-accent opacity-70;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-shine::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+    transform: rotate(30deg);
+    transition: transform 0.4s ease-out;
+  }
+  .btn-shine:hover::after {
+    transform: rotate(30deg) translate(30%, 30%);
+  }
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-neon-blue;
+  }
+  
+  .animate-confetti-1 {
+    animation: confetti 3s ease-out forwards;
+  }
+  .animate-confetti-2 {
+    animation: confetti 2.5s ease-out forwards 0.3s;
+  }
+  .animate-confetti-3 {
+    animation: confetti 2.7s ease-out forwards 0.1s;
+  }
+  .animate-confetti-4 {
+    animation: confetti 2.9s ease-out forwards 0.5s;
+  }
+  .animate-confetti-5 {
+    animation: confetti 3.2s ease-out forwards 0.2s;
+  }
+}
+
+#root {
+  @apply w-full min-h-screen p-0 m-0;
+}
