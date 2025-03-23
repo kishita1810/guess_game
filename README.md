@@ -50,7 +50,7 @@ http://localhost:8000
 If you don't want to run the frontend locally, you can simply start the backend and use the deployed frontend on Vercel:
 
 1. **Run the backend** (as shown above).  
-2. **Open the frontend at**: [Guessing Galaxy Game on Vercel](https://your-vercel-link.com).
+2. **Open the frontend at**: [Guessing Galaxy Game on Vercel](https://guessinggalaxygame.vercel.app/).
 
 ## Game Logic  
 - Players select a game mode.  
