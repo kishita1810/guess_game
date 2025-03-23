@@ -26,16 +26,16 @@ cd guess_game
 
 #### Run the Frontend  
 ```sh
-cd frontend
+cd frontend-website
 npm install
-npm start
+npm run dev
 ```
 
-#### Run the Backend  
+#### Run the Backend in another terminal  
 ```sh
-cd backend
+cd guess_game
 pip install -r requirements.txt
-uvicorn main:app --host 0.0.0.0 --port 8000
+uvicorn backend:app --host 0.0.0.0 --port 8000
 ```
 
 #### Change API URL in Frontend (if needed)  
@@ -50,7 +50,7 @@ http://localhost:8000
 If you don't want to run the frontend locally, you can simply start the backend and use the deployed frontend on Vercel:
 
 1. **Run the backend** (as shown above).  
-2. **Open the frontend at**: [Glowing Guessing Galaxy on Vercel](https://your-vercel-link.com).
+2. **Open the frontend at**: [Guessing Galaxy Game on Vercel](https://your-vercel-link.com).
 
 ## Game Logic  
 - Players select a game mode.  
