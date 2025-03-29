@@ -9,6 +9,26 @@ In the **Word Guessing Game**, players try to guess a randomly selected four-let
 In the **Code Guessing Game**, they attempt to guess a randomly generated four-digit number.  
 After each guess, the game provides feedback on how many letters or numbers are in the correct position, helping players refine their guesses.
 
+---
+
+### Demo
+
+You can watch a quick screen recording of the game in action here:  
+[**Game Demo Video**](https://youtu.be/GlhcVNdX4Wc)
+
+This video will give you an idea of how the game works and what to expect when playing.
+
+---
+
+### Play the Game Online
+
+The game is hosted and ready for you to play! You can start playing the game by visiting the following link:  
+[**Play the Game**](https://guessinggalaxygame.vercel.app/)
+
+Feel free to try it out and enjoy!
+
+---
+
 ## Tech Stack
 - **Frontend**: React (Generated using [Lovable.dev AI](https://lovable.dev))  
 - **Backend**: FastAPI (Python)  
@@ -45,12 +65,6 @@ http://localhost:8000
 ```
 
 ---
-
-### Option 2: Running with Vercel Frontend  
-If you don't want to run the frontend locally, you can simply start the backend and use the deployed frontend on Vercel:
-
-1. **Run the backend** (as shown above).  
-2. **Open the frontend at**: [Guessing Galaxy Game on Vercel](https://guessinggalaxygame.vercel.app/).
 
 ## Game Logic  
 - Players select a game mode.  
